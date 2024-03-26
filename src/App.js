@@ -1,50 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
-
+import AddItemForm from './components/AddItemForm';
+import ClothingItemList from './components/ClothingItemList';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [clothingItems, setClothingItems] = useState([]);
 
-  useEffect(() => {
-    // GET request
-    fetch('/api/data')
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error fetching data:', error));
+  // Function to handle login
+  const handleLogin = (credentials) => {
+    // Perform login logic here (e.g., send login credentials to backend)
+    // Upon successful login, set isLoggedIn to true
+    setIsLoggedIn(true);
+    // Simulate fetching clothing items from backend
+    setClothingItems([
+      { id: 1, name: 'T-shirt', category: 'Tops', color: 'Red', size: 'M', image: 'https://example.com/tshirt.jpg' },
+      { id: 2, name: 'Jeans', category: 'Bottoms', color: 'Blue', size: '32', image: 'https://example.com/jeans.jpg' },
+    ]);
+  };
 
-    // POST request
-    fetch('/api/data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ /* data */ })
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error posting data:', error));
-  }, []);
+  // Function to handle logout
+  const handleLogout = () => {
+    // Perform logout logic here (e.g., clear session, remove tokens)
+    // Upon logout, set isLoggedIn to false
+    setIsLoggedIn(false);
+    // Clear clothing items
+    setClothingItems([]);
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {isLoggedIn ? <Dashboard /> : <LoginForm />}
-      </header>
+      {isLoggedIn ? (
+        <Dashboard onLogout={handleLogout}>
+          <AddItemForm onAddItem={(newItem) => setClothingItems([...clothingItems, newItem])} />
+          <ClothingItemList items={clothingItems} />
+        </Dashboard>
+      ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}
     </div>
   );
 }

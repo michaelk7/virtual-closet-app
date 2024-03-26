@@ -1,0 +1,37 @@
+/* src/components/AddItemForm.css */
+
+.add-item-form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+  
+.add-item-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+.add-item-form form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.add-item-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+  
+.add-item-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.add-item-form button:hover {
+    background-color: #0056b3;
+}
+  

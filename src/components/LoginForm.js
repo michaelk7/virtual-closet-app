@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './LoginForm.css'; // Import CSS file
 
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -17,28 +17,31 @@ const LoginForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Implement login logic here
-    console.log('Form submitted:', formData);
+    // Call onLogin function with form data
+    onLogin(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        placeholder="Username or Email"
-        value={formData.username}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="form-container">
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username or Email"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 };
 

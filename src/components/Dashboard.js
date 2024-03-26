@@ -2,11 +2,19 @@
 import React from 'react';
 import './Dashboard.css'; // Import CSS file
 
-const Dashboard = () => {
+const Dashboard = ({ onLogout, children }) => {
+  const handleLogout = () => {
+    // Call onLogout function to perform logout action
+    onLogout();
+  };
+
   return (
-    <div>
+    <div className="dashboard-container">
       <h2>Welcome to Your Dashboard</h2>
-      {/* Add additional dashboard content here */}
+      <button onClick={handleLogout}>Logout</button>
+      <div>
+        {children} {/* Render child components here */}
+      </div>
     </div>
   );
 };

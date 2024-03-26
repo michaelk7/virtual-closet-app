@@ -1,0 +1,14 @@
+/* src/components/Dashboard.css */
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+.dashboard-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+/* Add additional styling for your dashboard content here */
+  

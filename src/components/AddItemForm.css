@@ -3,11 +3,17 @@
 .add-item-form {
     max-width: 400px;
     margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #ccc;
 }
   
 .add-item-form h2 {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
   
 .add-item-form form {
@@ -29,6 +35,8 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
   
 .add-item-form button:hover {

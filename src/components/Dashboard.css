@@ -3,12 +3,25 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
   
 .dashboard-container h2 {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+  
+.dashboard-container .dashboard-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
   
 /* Add additional styling for your dashboard content here */
-  
